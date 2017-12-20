@@ -1,0 +1,122 @@
+body{
+    margin: 0;
+    color: whitesmoke;
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #222629;
+    color: white;
+}
+
+.title{
+    font-size: 8vh;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    text-align: center;
+}
+
+.nav{
+
+}
+
+.main{
+}
+
+
+/* grid */
+.title{
+    display: grid;
+    grid-template-rows: 15vh;
+    grid-template-columns: 1fr 50px;
+    align-items: center;
+}
+
+
+
+/*  */
+
+
+.navigation{
+    grid-area: navigation;
+}
+
+.main{
+    font-size: 20px;
+    height: 80vh;
+}
+
+.footer{
+    padding-top: 10vh;
+}
+
+
+
+/* navigation bar */
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-evenly;
+}
+
+
+li a,.dropbtn{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    padding: 0px 50px;
+}
+
+li a:hover, .dropdown:hover {
+    background-color: #61892f
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color:  #474b4f;
+}
+
+.dropdown-content a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* homepage*/
+.info{
+    display: grid;
+    grid-template-rows: 30vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.info div{
+    padding: 20px;
+}
+
+.main span{
+    font-size: 1.5em;
+}
+.main p{
+    font-size: 15px;
+    line-height: 2em;
+}
+.info span{
+    color: #86c232;
+}
+hr{
+    border-top: 1px solid #8c8b8b;
+}

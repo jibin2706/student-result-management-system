@@ -14,7 +14,7 @@
     <div class="title">
         <!-- <img src="icon.png" alt="" class="logo"> -->
         <span class="heading">Dashboard</span>
-        <span class="fa fa-sign-out"></span>
+        <a href="logout.php" style="color: white"><span class="fa fa-sign-out"></span></a>
 
     </div>
     <div class="nav">
@@ -67,3 +67,7 @@
     </div>
 </body>
 </html>
+
+<?php
+   include('session.php');
+?>

@@ -13,12 +13,20 @@ body{
     text-align: center;
 }
 
-.nav{
+.main_img img{
+    display: block;
+    margin: auto;
+    max-width: 80%;
+    height: auto;
+    padding:0 0 10 0px;
+}
+
+/* .nav{
 
 }
 
 .main{
-}
+} */
 
 
 /* grid */

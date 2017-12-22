@@ -19,8 +19,8 @@
             <form action="" method="post">
                 <fieldset>
                     <legend class="heading">Admin Login</legend>
-                    <input type="text" name="id" placeholder="Email">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="text" name="userid" placeholder="Email" autocomplete="off">
+                    <input type="password" name="password" placeholder="Password" autocomplete="off">
                     <input type="submit" value="Login">
                 </fieldset>
             </form>    
@@ -38,3 +38,32 @@
     </div>
 </body>
 </html>
+
+<?php
+    include("init.php");
+    session_start();
+    $db = mysqli_select_db($conn,'srms');
+    if (isset($_POST["userid"],$_POST["password"]))
+    {
+        $username=$_POST["userid"];
+        $password=$_POST["password"];
+        $sql = "SELECT userid FROM admin_login WHERE userid='$username' and password = '$password'";
+        $result=mysqli_query($conn,$sql);
+//         if (!$result) {
+//     printf("Error: %s\n", mysqli_error($conn));
+//     exit();
+// }
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+        $count=mysqli_num_rows($result);
+        if($count==1){
+            $_SESSION['login_user']=$username;
+            header("Location: dashboard.php");
+        }else {
+            echo "ho";
+            $error = "Your Login Name or Password is invalid";
+        }
+        
+    }
+
+?>
+

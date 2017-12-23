@@ -53,7 +53,7 @@
 //     printf("Error: %s\n", mysqli_error($conn));
 //     exit();
 // }
-        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+        $row=mysqli_fetch_array($result);
         $count=mysqli_num_rows($result);
         if($count==1){
             $_SESSION['login_user']=$username;

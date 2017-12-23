@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="./css/form.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="./css/font-awesome-4.7.0/css/font-awesome.css">
-    <title>Dashboard</title>
+    <title>Add Class</title>
 </head>
 <body>
         
@@ -59,7 +60,14 @@
     </div>
 
     <div class="main">
-        <!-- <span style="font-size:50px;">Hello </span> -->
+        <form action="" method="post">
+            <fieldset>
+                <legend>Add Class</legend>
+                Class Name:<input type="text" name="class_name" id="">
+                Class ID:<input type="text" name="class_id" id="">
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
     </div>
 
     <div class="footer">
@@ -68,6 +76,25 @@
 </body>
 </html>
 
-<?php
-   include('session.php');
+<?php 
+	include('init.php');
+    include('session.php');
+    $db = mysqli_select_db($conn,'srms');
+
+    if (isset($_POST['class_name'],$_POST['class_id'])) {
+        $name=$_POST["class_name"];
+        $id=$_POST["class_id"];
+
+        $sql = "INSERT INTO `class` (`name`, `id`) VALUES ('$name', '$id')";
+        $result=mysqli_query($conn,$sql);
+        
+        if (!$result) {
+            echo "invalid class name or class id";
+            exit();
+        }
+        else{
+            
+        }
+    }
+
 ?>

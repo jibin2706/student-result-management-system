@@ -8,43 +8,27 @@ body{
 }
 
 .title{
-    font-size: 8vh;
-    font-family: 'Carrois Gothic SC', sans-serif;
+    display: grid;
+    grid-template-rows: 50px;
+    grid-template-columns: 50px 1fr 50px;
+    align-items: center;
+    padding: 20px;
+    /* justify-content: center; */
+}
+/* title grid */
+.logo{
+    width: 150px;
+    height: auto;   
+}
+.heading{
+    font-size: 60px;
     text-align: center;
 }
 
-.main_img img{
-    display: block;
-    margin: auto;
-    max-width: 80%;
-    height: auto;
-    padding:0 0 10 0px;
-}
-
-/* .nav{
-
-}
-
-.main{
-} */
-
-
-/* grid */
-.title{
-    display: grid;
-    grid-template-rows: 15vh;
-    grid-template-columns: 1fr 50px;
-    align-items: center;
-}
 
 
 
 /*  */
-
-
-.navigation{
-    grid-area: navigation;
-}
 
 .main{
     font-size: 20px;
@@ -53,6 +37,7 @@ body{
 
 .footer{
     padding-top: 10vh;
+    text-align: center;
 }
 
 
@@ -103,6 +88,11 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.btn{
+    cursor: pointer;
+}
+
 
 /* homepage*/
 .info{

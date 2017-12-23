@@ -5,6 +5,7 @@ body{
 .main{
     display: grid;
     align-items: center;
+
 }
 
 input{
@@ -46,3 +47,5 @@ fieldset{
     padding: 20px;
     margin: 0 15rem;
 }
+
+

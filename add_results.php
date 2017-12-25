@@ -77,22 +77,9 @@
                             $display=$row['name'];
                             echo '<option value="'.$display.'">'.$display.'</option>';
                         }
-                    echo'</select>';
-                    
-
-                    // // select student
-                    // // $sql="SELECT `name` from `students` WHERE `name` not in (SELECT `name` from `result`) and (SELECT `name` from `students` WHERE `class_name`=)";
-                    // $sql="SELECT `name`,`rno` from `students` WHERE `name` in (SELECT `name` from `students` WHERE `class_name`='fybsc it') and name not in (SELECT `name` from `result`)";
-                    // $student_result=mysqli_query($conn,$sql);
-                    // echo '<select name="student_name">';
-                    // echo '<option selected disabled>Roll No</option>';
-                    // while($row = mysqli_fetch_array($student_result)) {
-                    //     $display=$row['name'];
-                    //     echo '<option value="'.$value.'">'.$display.'</option>';
-                    // }
-                    //     echo'</select>'
-                      
+                    echo'</select>';                      
                 ?>
+
                 <input type="text" name="rno" placeholder="Roll No">
                 <input type="text" name="p1" id="" placeholder="Paper 1">
                 <input type="text" name="p2" id="" placeholder="Paper 2">
@@ -114,25 +101,28 @@
     if(isset($_POST['rno'],$_POST['p1'],$_POST['p2'],$_POST['p3'],$_POST['p4'],$_POST['p5'])) {
         $rno=$_POST['rno'];
         $class_name=$_POST['class_name'];
-        $p1=(int)$_POST['p1'];
-        $p2=(int)$_POST['p2'];
-        $p3=(int)$_POST['p3'];
-        $p4=(int)$_POST['p4'];
-        $p5=(int)$_POST['p5'];
+        $p1=$_POST['p1'];
+        $p2=$_POST['p2'];
+        $p3=$_POST['p3'];
+        $p4=$_POST['p4'];
+        $p5=$_POST['p5'];
 
         $marks=$p1+$p2+$p3+$p4+$p5;
         $percentage=$marks/5;
-        $name=mysqli_query($conn,"SELECT `name` FROM `students` WHERE `rn`='$rno' and `class_name`='$class_name'");
-        echo $name;
-        $sql="INSERT INTO `result` (`name`, `rno`, `class`, `p1`, `p2`, `p3`, `p4`, `p5`, `marks`, `percentage`) VALUES ('$name', '$rno', '$class_name', '$p1', '$p2', '$p3', '$p4', '$p5', '$marks', '$percentage')";
-        $result=mysqli_query($conn,$sql);
-        if (!$result) {
+        $name=mysqli_query($conn,"SELECT `name` FROM `students` WHERE `rno`='$rno' and `class_name`='$class_name'");
+        while($row = mysqli_fetch_array($name)) {
+            $display=$row['name'];
+            echo $display;
+         }
+        }
+
+        $sql="INSERT INTO `result` (`name`, `rno`, `class`, `p1`, `p2`, `p3`, `p4`, `p5`, `marks`, `percentage`) VALUES ('$display', '$rno', '$class_name', '$p1', '$p2', '$p3', '$p4', '$p5', '$marks', '$percentage')";
+        $sql=mysqli_query($conn,$sql);
+        if (!$sql) {
             echo  mysqli_error($conn);
             exit();
         }
         else{
-            echo"done";
+            echo "done";
         }
-    }
-
 ?>

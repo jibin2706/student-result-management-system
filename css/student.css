@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.title{
+    font-size: 50px;
+    text-align: center;
+
+}
+
+.details{
+    font-size: 20px;
+    padding: 50px 50px;
+    letter-spacing: 0.1em;
+}
+
+.main{
+    font-size: 18px;
+    padding-left: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 25%;
+}
+
+.button{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+p:nth-child(1) {
+    font-weight: bold;
+}
+
+

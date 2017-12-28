@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index Page</title>
     <link rel="stylesheet" href="css\login.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="./js/validation.js"></script>
 </head>
 <body>
     <div class="title">
@@ -19,14 +18,14 @@
             <form action="" method="post">
                 <fieldset>
                     <legend class="heading">Admin Login</legend>
-                    <input type="text" name="userid" placeholder="Email" autocomplete="off">
-                    <input type="password" name="password" placeholder="Password" autocomplete="off">
+                    <input type="text" id="email" name="userid" placeholder="Email" autocomplete="off">
+                    <input type="password" id="password" name="password" placeholder="Password" autocomplete="off">
                     <input type="submit" value="Login">
                 </fieldset>
             </form>    
         </div>
         <div class="search">
-            <form action="" method="post">
+            <form action="./student.php" method="get">
                 <fieldset>
                     <legend class="heading">For Students</legend>
                     <input type="text" name="class" placeholder="Class">
@@ -49,21 +48,19 @@
         $password=$_POST["password"];
         $sql = "SELECT userid FROM admin_login WHERE userid='$username' and password = '$password'";
         $result=mysqli_query($conn,$sql);
-//         if (!$result) {
-//     printf("Error: %s\n", mysqli_error($conn));
-//     exit();
-// }
+
         $row=mysqli_fetch_array($result);
         $count=mysqli_num_rows($result);
-        if($count==1){
+        
+        if($count==1) {
             $_SESSION['login_user']=$username;
             header("Location: dashboard.php");
         }else {
-            echo "ho";
-            $error = "Your Login Name or Password is invalid";
+            echo '<script language="javascript">';
+            echo 'alert("Invalid Username or Password")';
+            echo '</script>';
         }
         
     }
-
 ?>
 

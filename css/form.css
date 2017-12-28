@@ -1,13 +1,3 @@
-body{
-    margin: 0;
-}
-
-.main{
-    display: grid;
-    align-items: center;
-
-}
-
 input,select,option{
     width: 100%;
     padding: 12px 20px;
@@ -47,5 +37,3 @@ fieldset{
     padding: 20px;
     margin: 0 15rem;
 }
-
-

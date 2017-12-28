@@ -30,28 +30,19 @@
                 </div>
             </li>
             <li class="dropdown" onclick="toggleDisplay('2')">
-                <a href="#" class="dropbtn">Subjects &nbsp
-                    <span class="fa fa-angle-down"></span>
-                </a>
-                <div class="dropdown-content" id="2">
-                    <a href="add_subjects.php">Add Subjects</a>
-                    <a href="manage_subjects.php">Manage Subjects</a>
-                </div>
-            </li>
-            <li class="dropdown" onclick="toggleDisplay('3')">
                 <a href="#" class="dropbtn">Students &nbsp
                     <span class="fa fa-angle-down"></span>
                 </a>
-                <div class="dropdown-content" id="3">
+                <div class="dropdown-content" id="2">
                     <a href="add_students.php">Add Students</a>
                     <a href="manage_students.php">Manage Students</a>
                 </div>
             </li>
-            <li class="dropdown" onclick="toggleDisplay('4')">
+            <li class="dropdown" onclick="toggleDisplay('3')">
                 <a href="#" class="dropbtn">Results &nbsp
                     <span class="fa fa-angle-down"></span>
                 </a>
-                <div class="dropdown-content" id="4">
+                <div class="dropdown-content" id="3">
                     <a href="add_results.php">Add Results</a>
                     <a href="manage_results.php">Manage Results</a>
                 </div>
@@ -92,37 +83,43 @@
     </div>
 
     <div class="footer">
-        <span>Designed & Coded By Jibin Thomas</span>
+        <!-- <span>Designed & Coded By Jibin Thomas</span> -->
     </div>
 </body>
 </html>
 
 <?php
-    if(isset($_POST['rno'],$_POST['p1'],$_POST['p2'],$_POST['p3'],$_POST['p4'],$_POST['p5'])) {
+    if(isset($_POST['rno'],$_POST['p1'],$_POST['p2'],$_POST['p3'],$_POST['p4'],$_POST['p5']))
+    {
         $rno=$_POST['rno'];
         $class_name=$_POST['class_name'];
-        $p1=$_POST['p1'];
-        $p2=$_POST['p2'];
-        $p3=$_POST['p3'];
-        $p4=$_POST['p4'];
-        $p5=$_POST['p5'];
+        $p1=(int)$_POST['p1'];
+        $p2=(int)$_POST['p2'];
+        $p3=(int)$_POST['p3'];
+        $p4=(int)$_POST['p4'];
+        $p5=(int)$_POST['p5'];
 
         $marks=$p1+$p2+$p3+$p4+$p5;
         $percentage=$marks/5;
+
         $name=mysqli_query($conn,"SELECT `name` FROM `students` WHERE `rno`='$rno' and `class_name`='$class_name'");
         while($row = mysqli_fetch_array($name)) {
             $display=$row['name'];
             echo $display;
          }
-        }
 
         $sql="INSERT INTO `result` (`name`, `rno`, `class`, `p1`, `p2`, `p3`, `p4`, `p5`, `marks`, `percentage`) VALUES ('$display', '$rno', '$class_name', '$p1', '$p2', '$p3', '$p4', '$p5', '$marks', '$percentage')";
         $sql=mysqli_query($conn,$sql);
+
         if (!$sql) {
-            echo  mysqli_error($conn);
-            exit();
+            echo '<script language="javascript">';
+            echo 'alert("Invalid Details")';
+            echo '</script>';
         }
         else{
-            echo "done";
+            echo '<script language="javascript">';
+            echo 'alert("Successful")';
+            echo '</script>';
         }
+    }
 ?>

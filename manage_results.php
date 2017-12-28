@@ -30,28 +30,19 @@
                 </div>
             </li>
             <li class="dropdown" onclick="toggleDisplay('2')">
-                <a href="#" class="dropbtn">Subjects &nbsp
-                    <span class="fa fa-angle-down"></span>
-                </a>
-                <div class="dropdown-content" id="2">
-                    <a href="add_subjects.php">Add Subjects</a>
-                    <a href="manage_subjects.php">Manage Subjects</a>
-                </div>
-            </li>
-            <li class="dropdown" onclick="toggleDisplay('3')">
                 <a href="#" class="dropbtn">Students &nbsp
                     <span class="fa fa-angle-down"></span>
                 </a>
-                <div class="dropdown-content" id="3">
+                <div class="dropdown-content" id="2">
                     <a href="add_students.php">Add Students</a>
                     <a href="manage_students.php">Manage Students</a>
                 </div>
             </li>
-            <li class="dropdown" onclick="toggleDisplay('4')">
+            <li class="dropdown" onclick="toggleDisplay('3')">
                 <a href="#" class="dropbtn">Results &nbsp
                     <span class="fa fa-angle-down"></span>
                 </a>
-                <div class="dropdown-content" id="4">
+                <div class="dropdown-content" id="3">
                     <a href="add_results.php">Add Results</a>
                     <a href="manage_results.php">Manage Results</a>
                 </div>
@@ -123,6 +114,15 @@
         echo $class_name;
         echo $rno;
         $delete_sql=mysqli_query($conn,"DELETE from `result` where `rno`='$rno' and `class`='$class_name'");
+        if(!$delete_sql){
+            echo '<script language="javascript">';
+            echo 'alert("Not available")';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Deleted")';
+            echo '</script>';
+        }
     }
 
     if(isset($_POST['rn'],$_POST['p1'],$_POST['p2'],$_POST['p3'],$_POST['p4'],$_POST['p5'],$_POST['class'])) {
@@ -140,8 +140,15 @@
 
         $sql="UPDATE `result` SET `p1`='$p1',`p2`='$p2',`p3`='$p3',`p4`='$p4',`p5`='$p5',`marks`='$marks',`percentage`='$percentage' WHERE `rno`='$rno' and `class`='$class_name'";
         $update_sql=mysqli_query($conn,$sql);
+
         if(!$update_sql){
-            echo mysqli_error($conn);
+            echo '<script language="javascript">';
+            echo 'alert("Invalid Details")';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Updated")';
+            echo '</script>';
         }
     }
 ?>

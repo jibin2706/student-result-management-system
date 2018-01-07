@@ -9,18 +9,18 @@ body{
 .title{
     display: grid;
     grid-template-rows: 50px;
-    grid-template-columns: 50px 1fr 50px;
+    grid-template-columns: 150px 1fr 150px;
     align-items: center;
-    padding: 20px;
+    padding: 20px 0;
+    text-align: center;
 }
 /* title grid */
 .logo{
     width: 150px;
-    height: auto;   
+    height: auto;
 }
 .heading{
     font-size: 60px;
-    text-align: center;
 }
 
 
@@ -32,6 +32,14 @@ body{
     padding-top: 80px;
 }
 
+.main p{
+    margin: 0;
+    font-size: 25px;
+    font-family: monospace;
+    letter-spacing: 3px;
+    line-height: 3;
+}
+
 .footer{
     
 }
@@ -41,7 +49,7 @@ body{
 /* navigation bar */
 ul{
     list-style-type: none;
-    margin: 0;
+    margin: 20px 0 0 0;
     padding: 0;
     display: flex;
     overflow: hidden;
@@ -87,9 +95,10 @@ li.dropdown {
 
 
 /* homepage*/
-.info{
+/* .info{
     display: grid;
     grid-template-rows: 30vh;
+    padding: 20px 0;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -101,7 +110,7 @@ li.dropdown {
     font-size: 1.5em;
 }
 .main p{
-    font-size: 15px;
+    font-size: 30px;
     line-height: 2em;
 }
 .info span{
@@ -109,4 +118,4 @@ li.dropdown {
 }
 hr{
     border-top: 1px solid #8c8b8b;
-}
+} */

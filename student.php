@@ -21,6 +21,10 @@
         $mark = $row['marks'];
         $percentage = $row['percentage'];
     }
+    if(mysqli_num_rows($result_sql)==0){
+        echo "no result";
+        exit();
+    }
 
 
 ?>
@@ -28,6 +32,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/student.css">
     <title>Result</title>
 </head>

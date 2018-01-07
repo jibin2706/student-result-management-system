@@ -13,7 +13,7 @@
 <body>
         
     <div class="title">
-        <img src="./images/logo1.png" alt="" class="logo">
+        <a href="dashboard.php"><img src="./images/logo1.png" alt="" class="logo"></a>
         <span class="heading">Dashboard</span>
         <a href="logout.php" style="color: white"><span class="fa fa-sign-out fa-3x"></span></a>
     </div>

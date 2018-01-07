@@ -1,18 +1,35 @@
+<?php
+    include("init.php");
+    $db = mysqli_select_db($conn,'srms');
+    $no_of_classes=mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM `class`"));
+    $no_of_students=mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM `students`"));
+    $no_of_result=mysqli_fetch_array(mysqli_query($conn,"SELECT COUNT(*) FROM `result`"));
+?>
+        
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/home.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="./css/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="normalize.css">
     <title>Dashboard</title>
+    <style>
+        .main{
+            border-radius: 10px;
+            border-width: 5px;
+            border-style: solid;
+            padding: 20px;
+            margin: 5rem 10rem;
+        }
+    </style>
 </head>
 <body>
         
     <div class="title">
-        <img src="./images/logo1.png" alt="" class="logo">
+        <a href="dashboard.php"><img src="./images/logo1.png" alt="" class="logo"></a>
         <span class="heading">Dashboard</span>
         <a href="logout.php" style="color: white"><span class="fa fa-sign-out fa-3x"></span></a>
     </div>
@@ -49,8 +66,12 @@
         </ul>
     </div>
 
-    <div class="main">
-        
+    <div class="main" style="font-size:30px">
+        <?php
+            echo '<p>Number of classes:'.$no_of_classes[0].'</p>';
+            echo '<p>Number of students:'.$no_of_students[0].'</p>';
+            echo '<p>Number of results:'.$no_of_result[0].'</p>';
+        ?>
     </div>
 
     <div class="footer">

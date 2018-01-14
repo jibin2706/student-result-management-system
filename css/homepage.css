@@ -10,6 +10,10 @@ hr {
     border-top: 1px solid #8c8b8b;
 }
 
+.container {
+    margin: 0 5%;
+}
+
 .title {
     display: flex;
     font-size: 3em;
@@ -95,4 +99,12 @@ li.dropdown {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+/* image slider */
+.slider {
+    text-align: center;
+}
+.slider img {
+    width: 50%;
 }

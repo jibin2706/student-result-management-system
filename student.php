@@ -37,6 +37,7 @@
     <title>Result</title>
 </head>
 <body>
+<div class="container">
     <div class="details">
         <span>Name:</span> <?php echo $name ?> <br>
         <span>Class:</span> <?php echo $class; ?> <br>
@@ -62,8 +63,14 @@
         </div>
     </div>
 
+    <div class="result">
+		<?php echo '<p>Total Marks:&nbsp'.$mark.'</p>';?>
+		<?php echo '<p>Percentage:&nbsp'.$percentage.'</p>';?>
+	</div>
+
     <div class="button">
         <button onclick="window.print()">Print Result</button>
     </div>
+</div>
 </body>
 </html>

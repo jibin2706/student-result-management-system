@@ -2,7 +2,7 @@ body{
     margin: 0;
     background-color: #222629;
     color: white;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
 }
 
 .title{

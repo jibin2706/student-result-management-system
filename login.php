@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Index Page</title>
-    <link rel="stylesheet" href="css\login.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="./js/validation.js"></script>
@@ -15,17 +15,17 @@
 
     <div class="main">
         <div class="login">
-            <form action="" method="post">
+            <form action="" method="post" name="login" onsubmit="return validate()">
                 <fieldset>
                     <legend class="heading">Admin Login</legend>
-                    <input type="text" id="email" name="userid" placeholder="Email" autocomplete="off">
-                    <input type="password" id="password" name="password" placeholder="Password" autocomplete="off">
+                    <input type="text" name="userid" placeholder="Email" autocomplete="off">
+                    <input type="password" name="password" placeholder="Password" autocomplete="off">
                     <input type="submit" value="Login">
                 </fieldset>
             </form>    
         </div>
         <div class="search">
-            <form action="./student.php" method="get">
+            <form action="./student.php" method="get" onsubmit="return validate()">
                 <fieldset>
                     <legend class="heading">For Students</legend>
                     <input type="text" name="class" placeholder="Class">

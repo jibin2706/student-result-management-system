@@ -70,7 +70,6 @@
 <?php 
 	include('init.php');
     include('session.php');
-    $db = mysqli_select_db($conn,'srms');
 
     if (isset($_POST['class_name'],$_POST['class_id'])) {
         $name=$_POST["class_name"];

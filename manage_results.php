@@ -58,7 +58,7 @@
                 <?php
                     include('init.php');
                     include('session.php');
-                    $db = mysqli_select_db($conn,'srms');
+                    
                     $class_result=mysqli_query($conn,"SELECT `name` FROM `class`");
                         echo '<select name="class_name">';
                         echo '<option selected disabled>Select Class</option>';

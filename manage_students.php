@@ -54,7 +54,6 @@
         <?php
             include('init.php');
             include('session.php');
-            $db = mysqli_select_db($conn,'srms');
 
             $sql = "SELECT `name`, `rno`, `class_name` FROM `students`";
             $result = mysqli_query($conn, $sql);

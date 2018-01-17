@@ -58,7 +58,6 @@
                 <?php
                     include("init.php");
                     include("session.php");
-                    $db = mysqli_select_db($conn,'srms');
 
                     $select_class_query="SELECT `name` from `class`";
                     $class_result=mysqli_query($conn,$select_class_query);
@@ -82,9 +81,6 @@
         </form>
     </div>
 
-    <div class="footer">
-        <!-- <span>Designed & Coded By Jibin Thomas</span> -->
-    </div>
 </body>
 </html>
 

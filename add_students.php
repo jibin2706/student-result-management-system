@@ -56,11 +56,10 @@
                 <legend>Add Student</legend>
                 Student Name: <input type="text" name="student_name" id="">
                 Roll No: <input type="text" name="roll_no" id="">
-                <!--  -->
                 <?php
                     include('init.php');
                     include('session.php');
-                    $db = mysqli_select_db($conn,'srms');
+                    
                     $class_result=mysqli_query($conn,"SELECT `name` FROM `class`");
                         echo 'Class: <select name="class_name">';
                         echo '<option selected disabled>Select Class</option>';
@@ -70,7 +69,6 @@
                     }
                     echo'</select>'
                 ?>
-                <!--  -->
                 <input type="submit" value="Submit">
             </fieldset>
         </form>
@@ -85,7 +83,7 @@
 <?php
     $db = mysqli_select_db($conn,'srms');
 
-    if(isset($_POST['student_name'],$_POST['roll_no'])) {
+    if(isset($_POST['student_name'],$_POST['roll_no'],$_POST['class_name'])) {
         $name=$_POST['student_name'];
         $rno=$_POST['roll_no'];
         $class_name=$_POST['class_name'];

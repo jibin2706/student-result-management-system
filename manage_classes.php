@@ -82,14 +82,10 @@
             } else {
                 echo "0 results";
             }
-
-
         ?>
+        
     </div>
 
-    <div class="footer">
-        <!-- <span>Designed & Coded By Jibin Thomas</span> -->
-    </div>
 </body>
 </html>
 

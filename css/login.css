@@ -24,7 +24,7 @@ body{
 
 
 /* form */
-input{
+input,select{
     width: 100%;
     padding: 12px 20px;
     margin: 10px 0;
@@ -32,7 +32,7 @@ input{
     display: block;
 }
 
-input[type=text],input[type=password]{
+input[type=text],input[type=password],select{
     background-color: #474b4f;
     color: white;
     border: none;

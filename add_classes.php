@@ -57,7 +57,7 @@
                 <input type="text" name="class_name" placeholder="Class Name">
                 <input type="text" name="class_id" placeholder="Class ID">
                 <input type="submit" value="Submit">
-            </fieldset>
+            </fieldset>        
         </form>
     </div>
 
@@ -74,6 +74,17 @@
     if (isset($_POST['class_name'],$_POST['class_id'])) {
         $name=$_POST["class_name"];
         $id=$_POST["class_id"];
+
+        // validation
+        if (empty($name) or empty($id) or preg_match("/[a-z]/i",$id)) {
+            if(empty($name))
+                echo '<p class="error">Please enter class</p>';
+            if(empty($id))
+                echo '<p class="error">Please enter class id</p>';
+            if(preg_match("/[a-z]/i",$id))
+                echo '<p class="error">Please enter valid class id</p>';
+            exit();
+        }
 
         $sql = "INSERT INTO `class` (`name`, `id`) VALUES ('$name', '$id')";
         $result=mysqli_query($conn,$sql);

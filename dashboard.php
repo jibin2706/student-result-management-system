@@ -22,7 +22,7 @@
             border-width: 5px;
             border-style: solid;
             padding: 20px;
-            margin: 5rem 10rem;
+            margin: 7% 20% 0 20%;
         }
     </style>
 </head>
@@ -66,7 +66,7 @@
         </ul>
     </div>
 
-    <div class="main" style="font-size:30px">
+    <div class="main">
         <?php
             echo '<p>Number of classes:'.$no_of_classes[0].'</p>';
             echo '<p>Number of students:'.$no_of_students[0].'</p>';

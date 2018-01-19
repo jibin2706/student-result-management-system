@@ -54,14 +54,14 @@
         <form action="" method="post">
             <fieldset>
                 <legend>Add Student</legend>
-                Student Name: <input type="text" name="student_name" id="">
-                Roll No: <input type="text" name="roll_no" id="">
+                <input type="text" name="student_name" placeholder="Student Name">
+                <input type="text" name="roll_no" placeholder="Roll No">
                 <?php
                     include('init.php');
                     include('session.php');
                     
                     $class_result=mysqli_query($conn,"SELECT `name` FROM `class`");
-                        echo 'Class: <select name="class_name">';
+                        echo '<select name="class_name">';
                         echo '<option selected disabled>Select Class</option>';
                     while($row = mysqli_fetch_array($class_result)){
                         $display=$row['name'];
@@ -75,18 +75,36 @@
     </div>
 
     <div class="footer">
-        <!-- <span>Designed & Coded By Jibin Thomas</span> -->
+        <!-- <span>&copy Designed & Coded By Jibin Thomas</span> -->
     </div>
 </body>
 </html>
 
 <?php
-    $db = mysqli_select_db($conn,'srms');
 
-    if(isset($_POST['student_name'],$_POST['roll_no'],$_POST['class_name'])) {
+    if(isset($_POST['student_name'],$_POST['roll_no'])) {
         $name=$_POST['student_name'];
         $rno=$_POST['roll_no'];
-        $class_name=$_POST['class_name'];
+        if(!isset($_POST['class_name']))
+            $class_name=null;
+        else
+            $class_name=$_POST['class_name'];
+
+        // validation
+        if (empty($name) or empty($rno) or empty($class_name) or preg_match("/[a-z]/i",$rno) or !preg_match("/^[a-zA-Z ]*$/",$name)) {
+            if(empty($name))
+                echo '<p class="error">Please enter name</p>';
+            if(empty($class_name))
+                echo '<p class="error">Please select your class</p>';
+            if(empty($rno))
+                echo '<p class="error">Please enter your roll number</p>';
+            if(preg_match("/[a-z]/i",$rno))
+                echo '<p class="error">Please enter valid roll number</p>';
+            if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+                    echo '<p class="error">No numbers or symbols allowed in name</p>'; 
+                  }
+            exit();
+        }
         
         $sql = "INSERT INTO `students` (`name`, `rno`, `class_name`) VALUES ('$name', '$rno', '$class_name')";
         $result=mysqli_query($conn,$sql);

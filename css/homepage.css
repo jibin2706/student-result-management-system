@@ -1,17 +1,17 @@
 body {
-    margin: 0 20px;
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Roboto', sans-serif;
     background-color: #222629;
     color: white;
+    margin: 0;
 }
 
 hr {
-    border-top: 1px solid #8c8b8b;
+    border-top: 1px solid white;
 }
 
 .container {
-    margin: 0 5%;
+    padding: 0 5%;
 }
 
 .title {
@@ -23,7 +23,7 @@ hr {
 }
 
 .main{
-    min-height: 70vh;
+
 }
 .main span {
     font-size: 20px;
@@ -42,15 +42,21 @@ hr {
     color: #86c232;
     font-size: 20px;
 }
-.info p {
-    font-size: 16px;
-}
 
 .footer {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    line-height: 2;    
+    background-color: #474b4f;
+    
 }
-
+.footer a{
+    color: white;
+    display: block;
+}
+.footer span {
+    font-size: 20px;
+}
 
 /* navigation bar */
 ul{

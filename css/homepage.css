@@ -46,9 +46,8 @@ hr {
 .footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    line-height: 2;    
-    background-color: #474b4f;
-    
+    line-height: 2;
+    margin-top: 100px;
 }
 .footer a{
     color: white;
@@ -57,7 +56,6 @@ hr {
 .footer span {
     font-size: 20px;
 }
-
 /* navigation bar */
 ul{
     list-style-type: none;
